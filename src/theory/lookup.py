@@ -1,7 +1,10 @@
 class DD:
+    def __init__(self, value):
+        self.value = value
+
     def __get__(self, obj, owner=None):
         print(f"DD.__get__({obj=}, {owner=})")
-        return self
+        return self.value
 
     def __set__(self, obj, value):
         print(f"DD.__set__({obj=}, {value=})")
@@ -11,6 +14,9 @@ class DD:
 
 
 class NDD:
+    def __init__(self, value):
+        self.value = value
+
     def __get__(self, obj, owner=None):
         print(f"NDD.__get__({obj=}, {owner=})")
         return self
@@ -25,8 +31,8 @@ class WOD:
 
 
 class A:
-    x = DD()
-    y = NDD()
+    x = DD(42)
+    y = NDD(66)
     z = WOD()
 
 
@@ -68,7 +74,24 @@ def get_main():
     print(f"{a.x=}")
     print(f"{a.y=}")
     print(f"{a.z=}")
+    a.__dict__["t"] = DD(21)
+    print(f"{a.t=}")
+
+
+def get_class():
+    print(f"{A.x=}")
+    print(f"{A.y=}")
+    print(f"{A.z=}")
+
+
+def set_class():
+    A.x = 4
+    A.y = 5
+    A.z = 6
+    print(f"{A.x=}")
+    print(f"{A.y=}")
+    print(f"{A.z=}")
 
 
 if __name__ == "__main__":
-    set_main()
+    get_class()
