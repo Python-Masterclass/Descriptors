@@ -1,4 +1,4 @@
-from src.examples.choice import Choice
+from src.examples.validators.choice import Choice
 
 
 class NumberWithUnit(float):
