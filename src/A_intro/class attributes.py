@@ -1,6 +1,3 @@
-import logging
-
-
 class Meta(type):
     x = 3
 
@@ -22,8 +19,8 @@ def main_1():
     print(Meta.x)
     try:
         print(A.y)
-    except AttributeError:
-        logging.exception("")
+    except AttributeError as e:
+        print(f"{e.__class__.__name__}: {e}")
 
 
 def main_2():
@@ -35,8 +32,8 @@ def main_3():
     A.x = 5
     try:
         print(B.__dict__["x"])
-    except KeyError:
-        logging.exception("")
+    except KeyError as e:
+        print(f"{e.__class__.__name__}: {e}")
     print(B.x)
     print(M.x)
 
@@ -52,10 +49,20 @@ def main_5():
     A.x = 5
     try:
         del B.x
-    except AttributeError:
-        logging.exception("")
+    except AttributeError as e:
+        print(f"{e.__class__.__name__}: {e}")
     print(B.x)
     print(M.x)
 
 
-if __name__ == "__main__":    main_1()
+if __name__ == "__main__":
+    print("### 1 ###")
+    main_1()
+    print("### 2 ###")
+    main_2()
+    print("### 3 ###")
+    main_3()
+    print("### 4 ###")
+    main_4()
+    print("### 5 ###")
+    main_5()

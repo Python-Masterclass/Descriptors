@@ -1,5 +1,5 @@
-from src.examples.managed.instance_attribute import InstanceAttribute
-from src.examples.validators.validator import Validator
+from src.E_examples.managed.instance_attribute import InstanceAttribute
+from src.E_examples.validators.validator import Validator
 
 
 class Choice(Validator, InstanceAttribute):

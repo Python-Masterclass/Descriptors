@@ -40,6 +40,7 @@ class Item(Table, connection=connection):
 
     def __init__(self, key, name=None, price=None):
         self.key = key
+        self.connection = connection
         self.connection.execute(
             f"INSERT INTO {self.__class__.__name__.lower()} ({self.__class__.key}) VALUES ({self.key});"
         )
