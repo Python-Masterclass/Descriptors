@@ -94,4 +94,4 @@ def set_class():
 
 
 if __name__ == "__main__":
-    get_class()
+    set_main()
